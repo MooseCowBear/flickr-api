@@ -60,9 +60,10 @@ a:not([class]) {
 :root {
   --neutral-100: rgb(255, 255, 255);
   --neutral-100b: rgba(255, 255, 255, 0.5);
-  --frame: rgba(240,169,45,1);
   --form-text: rgb(87, 29, 105);
-  --form-accent: rgba(227,44,189,0.9865518575851393);
+  --gradient-2: rgb(240,169,45);
+  --gradient-1: rgba(227,44,189,0.9865518575851393);
+  --gradient-3: rgb(161,0,255);
 }
 
 body {
@@ -74,7 +75,7 @@ body {
   gap: 1rem;
   padding: 2vw;
   background: rgb(227,44,189);
-  background: linear-gradient(30deg, rgba(227,44,189,0.9865518575851393) 0%, rgba(240,169,45,1) 30%, rgba(161,0,255,1) 100%);
+  background: linear-gradient(30deg, var(--gradient-1) 0%, var(--gradient-2) 30%, var(--gradient-3) 100%);
   color: var(--neutral-100);
 }
 
@@ -107,7 +108,7 @@ h1 {
   display: flex;
   justify-content: center;
   background-color: var(--neutral-400b);
-  border: 5px solid var(--frame);
+  border: 5px solid var(--gradient-2);
 }
 
 .photo { 
@@ -167,7 +168,7 @@ input[type="submit"]{
 
 input[type="submit"]:hover, input[type="submit"]:focus {
   cursor: pointer;
-  background: linear-gradient(30deg, rgba(227,44,189,0.9865518575851393), rgba(240,169,45,1));
+  background: linear-gradient(30deg, var(--gradient-1), var(--gradient-2));
   color: var(--neutral-100);
   border: 2px solid var(--neutral-100);
 }
