@@ -3,8 +3,10 @@ class Photo
     unless search_params.empty?
       f = FlickrService.new
       @photo_data = f.get_photos_by_id(search_params[:user_id])
+      [@photo_data, true]
     else
       @photo_data = {}
+      [@photo_data, false]
     end
   end
 end

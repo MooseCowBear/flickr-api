@@ -8,8 +8,15 @@
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<% unless @photo_data.empty? %>
-  <%= @photo_data %>
-<% else %>
-  <p>photo data was empty</p>
+<% if @searched %>
+  <% unless @photo_data.empty? %>
+    <%= @photo_data %>
+  <% else %>
+    <% api_error = error_message(@photo_data) %>
+    <% if api_error %>
+      <%= api_error %>
+    <% else %>
+      <p>No photos were found.</p>
+    <% end %>
+  <% end %>
 <% end %>

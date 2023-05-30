@@ -1,8 +1,7 @@
 class PhotosController < ApplicationController
   def index
-    @photo_data = Photo.search(search_params)
+    @photo_data, @searched = Photo.search(search_params)
   end
-
 
   private
 
