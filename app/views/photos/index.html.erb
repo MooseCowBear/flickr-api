@@ -1,12 +1,13 @@
-
-
-<h2>Find Photos by User ID</h2>
-<%= form_tag root_path, method: :get do %>
-  <%= label_tag :user_id, "User ID:" %>
-  <%= text_field_tag :user_id, params[:user_id] %>
-
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
+<div class="header">
+  <h1>Find Photos!</h1>
+  <%= form_tag root_path, method: :get do %>
+    <div class="form__field">
+      <%= label_tag :user_id, "User ID:" %>
+      <%= text_field_tag :user_id, params[:user_id] %>
+    </div>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+</div>
 
 <% if @searched %> 
   <% api_error = error_message(@photo_data) %>
@@ -14,12 +15,14 @@
     <p><%= api_error %></p>
   <% else %>
       <% photos = photos(@photo_data) %>
-      <% photos.each do |p| %>
-        <div class="photo__wrapper">
-          <%= image_tag photo_url(p), { class: "photo" } %>
-          <p><%= p["title"] %></p>
-        </div>
-      <% end %>
+      <div class="photos">
+        <% photos.each do |p| %>
+          <div class="photo__wrapper">
+            <%= image_tag photo_url(p), { class: "photo" } %>
+            <p class="photo__title"><%= p["title"] %></p>
+          </div>
+        <% end %>
+      </div>
       <p><%= "No photos were found." if photos.empty? %></p>
   <% end %>
 <% end %>
