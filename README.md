@@ -15,3 +15,7 @@ The home page before a search:
 With search results returned:
 
 ![alt text](/screenshots/search_results.png "photo results")
+
+Displaying an error message. In this case, because the user id field was left empty. 
+
+![alt text](/screenshots/error.png "error message")
