@@ -5,7 +5,11 @@ module PhotosHelper
 
   def error_message(json)
     if json["stat"] == "fail"
-      json["message"]
+      if [2, 3, 5].include?(json["code"])
+        "User could not be found."
+      else
+        "Something went wrong. Try again later."
+      end
     end
   end
 
