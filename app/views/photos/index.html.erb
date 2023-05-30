@@ -1,0 +1,15 @@
+
+
+<h2>Find Photos by User ID</h2>
+<%= form_tag root_path, method: :get do %>
+  <%= label_tag :user_id, "User ID:" %>
+  <%= text_field_tag :user_id, params[:user_id] %>
+
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% unless @photo_data.empty? %>
+  <%= @photo_data %>
+<% else %>
+  <p>photo data was empty</p>
+<% end %>
